@@ -1,0 +1,469 @@
+:root {
+  --primary-font: "Montserrat", "Nunito", sans-serif;
+  --secondary-font: "Lato", sans-serif;
+  --primary-color: rgb(25, 25, 25);
+  --secondary-color: rgb(240, 240, 240);
+  --p-color-opaque: rgba(11, 11, 11, 0.7);
+  --s-color-opaque: rgba(255, 255, 255, 0.7);
+  --light-shadow: #efefef;
+  --dark-shadow: #c1c1c1;
+  --nav-height: 3rem;
+}
+
+.primary-color {
+  color: var(--primary-color);
+}
+
+.secondary-color {
+  color: var(--secondary-color);
+}
+
+.m-txt {
+  font-size: 1.5em;
+  line-height: 2em;
+}
+
+.m2-txt {
+  font-size: 1.2em;
+  line-height: 2em;
+}
+
+.l-txt {
+  font-size: 3em;
+  line-height: 2em;
+}
+
+.s-txt {
+  font-size: .8em;
+}
+
+.primary-ctxt {
+  color: var(--primary-color);
+}
+
+.secondary-ctxt {
+  color: var(--secondary-color);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--primary-font);
+}
+
+body {
+  background: var(--secondary-color);
+  color: var(--primary-color);
+  font-family: var(--primary-font);
+}
+
+img {
+  max-width: 400px;
+}
+
+nav {
+  z-index: 5;
+  width: 100%;
+  height: var(--nav-height);
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  backdrop-filter: blur(10px);
+
+  & a {
+    flex-basis: 10em;
+    text-align: center;
+    line-height: var(--nav-height);
+    text-decoration: none;
+    color: var(--primary-color);
+    background: radial-gradient(rgba(255, 255, 255, 0.3) 0, transparent 40%);
+    /* text-shadow: 0 0 2px white; */
+
+    &:link {
+      color: var(--primary-color);
+    }
+  }
+}
+
+.neomorph-emboss,
+#skills>figure {
+  background: var(--light-shadow);
+  box-shadow: -4px -4px 7px var(--dark-shadow),
+    4px 4px 7px white;
+}
+
+/* padding-top: revert; */
+
+.neomorph-emboss-2,
+#skills p:hover {
+  background: var(--light-shadow);
+  box-shadow: -1px -1px 4px var(--dark-shadow),
+    2px 2px 4px white;
+}
+
+.neomorph-emboss-circle,
+.neomorph-circle-set>*:not(:last-child) {
+  background: var(--light-shadow);
+  border-radius: 50%;
+  box-shadow: -4px -4px 7px var(--dark-shadow),
+    4px 4px 7px white;
+}
+
+.neomorph-emboss-pushed,
+.neomorph-circle-set>*:not(:last-child):hover {
+  background: linear-gradient(315deg, rgb(220 220 220), white);
+  box-shadow: -4px -4px 7px var(--dark-shadow),
+    4px 4px 7px white;
+}
+
+.neomorph-emboss-pushed-2,
+#submit_message:hover {
+  background: var(--light-shadow);
+  box-shadow: -1px -1px 4px var(--dark-shadow),
+    1px 1px 4px white, inset -2px -2px 2px #e5e5e5, inset 1px 1px 4px white;
+}
+
+.neomorph-emboss-transparent,
+a:hover {
+  padding-top: .05rem;
+  color: var(--primary-color);
+  background: radial-gradient(rgba(255, 255, 255, 0.5) 0, transparent 40%);
+  border-radius: 0 0 5px 5px;
+  box-shadow: -2px -2px 6px var(--dark-shadow),
+    4px 4px 20px rgba(255, 255, 255, 0.5);
+}
+
+.neomorph-deboss-transparent,
+a:active {
+  background: transparent;
+  box-shadow: inset -2px -2px 4px var(--dark-shadow),
+    inset 2px 2px 10px rgba(255, 255, 255, 0.5);
+}
+
+.neomorph-deboss,
+.neomorph-circle-set>*:not(:last-child):active {
+  background: var(--light-shadow);
+  box-shadow: inset -3px -3px 6px var(--dark-shadow),
+    inset 6px 6px 6px white;
+  padding-top: .2em;
+}
+
+.neomorph-deboss-3,
+#contact-form input:not(input[type="submit"]),
+#submit_message:active {
+  background: var(--light-shadow);
+  box-shadow: inset -1px -1px 2px var(--dark-shadow),
+    inset 1px 1px 2px white;
+}
+
+.neomorph-deboss-2 {
+  background: var(--light-shadow);
+  box-shadow: inset -1px -1px 4px var(--dark-shadow),
+    inset 1px 1px 4px white;
+}
+
+.neomorph-text-emboss {
+  color: var(--secondary-color);
+  text-shadow: .02em .02em .03em white, -.02em -.02em .03em var(--dark-shadow);
+}
+
+.neomorph-text-emboss-2 {
+  color: var(--light-shadow);
+  text-shadow: .05em .05em .05em white, -.03em -.03em .05em var(--dark-shadow);
+}
+
+.rect-round,
+#skills>figure,
+#skills p {
+  border-radius: 8px;
+}
+
+.rect-round-2,
+#contact-form input {
+  border-radius: 4px;
+}
+
+.intro {
+  padding: 12rem 0;
+
+  & h1 {
+    font-size: 8em;
+    letter-spacing: .05em;
+    text-align: center;
+  }
+}
+
+main,
+section {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  padding: calc(2rem + var(--nav-height)) 5rem;
+}
+
+main {
+  display: flex;
+  gap: 5rem;
+
+  >* {
+    flex-grow: 1;
+    flex-basis: 15rem;
+  }
+}
+
+.main-profile {
+  text-align: center;
+}
+
+.profile-pic {
+  display: block;
+  padding-top: 2rem;
+  width: 16rem;
+  margin: 2rem;
+  margin-bottom: 1rem;
+  background-color: var(--primary-color);
+}
+
+hr {
+  display: block;
+  clear: both;
+  border: 2px solid transparent;
+  box-shadow: 0px 4px 6px var(--dark-shadow);
+}
+
+.biography {
+  padding: 1em 2rem 0;
+  line-height: 2em;
+  text-align: justify;
+}
+
+#skills {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 2rem;
+
+  >figure {
+    text-align: center;
+    padding: 1rem 1rem .5rem;
+  }
+
+  & figcaption {
+    height: 3em;
+  }
+
+  & p {
+    font-size: .8em;
+    line-height: 2em;
+    margin-top: .5em;
+  }
+
+  & img {
+    height: 60px;
+  }
+}
+
+#contact {
+  display: flex;
+  gap: 5rem;
+}
+
+#contact-form {
+  flex-basis: 15rem;
+  flex-grow: 1;
+}
+
+.contact-grid {
+  flex-basis: 20rem;
+  flex-grow: 1;
+  display: grid;
+  padding: 3rem;
+  grid-template-columns: repeat(8, 3rem);
+  grid-template-rows: repeat(3, calc(1rem + (3rem * 2)));
+  gap: 1rem;
+
+  & img {
+    height: 3rem;
+  }
+
+  >* {
+    grid-column: span 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  > :nth-child(7n + 1) {
+    grid-column: 2 / 4;
+  }
+}
+
+#phone-contact {
+  text-decoration: none;
+  text-align: center;
+
+  & figcaption {
+    display: none;
+    margin-top: .6em;
+  }
+}
+
+#phone-contact:hover {
+  padding-top: .1rem;
+  border-radius: 8px;
+
+  & figcaption {
+    display: block;
+  }
+}
+
+#phone-contact:active {
+  padding-top: .2rem;
+  border-radius: 8px;
+}
+
+.caption-contact {
+  grid-column: span 4;
+  margin: 1rem;
+}
+
+#contact-form {
+  background: var(--light-shadow);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem;
+
+  & h1 {
+    text-align: center;
+  }
+
+  & input {
+    width: 80%;
+    border: none;
+  }
+
+  & input[type="submit"] {
+    text-align: center;
+    width: 50%;
+    height: 10%;
+  }
+
+  & textarea {
+    flex-grow: 1;
+    border: none;
+    padding: .5em;
+  }
+
+  & fieldset {
+    align-self: start;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    border: none;
+
+    &:nth-last-child(2) {
+      flex-wrap: wrap;
+    }
+
+    &.form-visitor-message-body>label {
+      margin-bottom: 0.5rem;
+    }
+  }
+}
+
+.pie {
+  width: 10rem;
+  height: 10rem;
+  border: 5px solid var(--light-shadow);
+  border-radius: 50%;
+  margin: 2rem auto 0;
+  background: conic-gradient(#B2DFDB calc(36deg * 1),
+      #E6E6FA 0 calc(36deg * 2),
+      #FFDAB9 0 calc(36deg * 3),
+      #CCCCFF 0 calc(36deg * 4),
+      #F7CAC9 0 calc(36deg * 5),
+      #87CEEB 0 calc(36deg * 6),
+      #FFFACD 0 calc(36deg * 7),
+      #C8A2C8 0 calc(36deg * 8),
+      #F08080 0 calc(36deg * 9),
+      #00FFFF 0);
+
+
+}
+
+.pie-legend {
+  padding-top: 1rem;
+  padding-left: 2rem;
+
+  & div[id^="pie-"]:before {
+    content: "";
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    vertical-align: bottom;
+    margin-right: 5px;
+  }
+}
+
+#pie-1:before {
+  background: #B2DFDB;
+}
+
+#pie-2:before {
+  background: #E6E6FA;
+}
+
+#pie-3:before {
+  background: #FFDAB9;
+}
+
+#pie-4:before {
+  background: #CCCCFF;
+}
+
+#pie-5:before {
+  background: #F7CAC9;
+}
+
+#pie-6:before {
+  background: #87CEEB;
+}
+
+#pie-7:before {
+  background: #FFFACD;
+}
+
+#pie-8:before {
+  background: #C8A2C8;
+}
+
+#pie-9:before {
+  background: #F08080;
+}
+
+#pie-10:before {
+  background: #00FFFF;
+}
+
+footer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 3rem;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+
+@media (min-width: 992px) {
+  nav {
+    gap: 4rem;
+  }
+}
+
+/* 
+ * Make pie chart neomorphic, with segments varying in depth
+*/
