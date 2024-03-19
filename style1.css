@@ -19,22 +19,22 @@
 }
 
 .m-txt {
-  font-size: 1.5em;
-  line-height: 2em;
+  font-size: 1.5rem;
+  line-height: 2rem;
 }
 
 .m2-txt {
-  font-size: 1.2em;
-  line-height: 2em;
+  font-size: 1.2rem;
+  line-height: 2rem;
 }
 
 .l-txt {
-  font-size: 3em;
-  line-height: 2em;
+  font-size: 3rem;
+  line-height: 2rem;
 }
 
 .s-txt {
-  font-size: .8em;
+  font-size: .8rem;
 }
 
 .primary-ctxt {
@@ -58,27 +58,33 @@ body {
   font-family: var(--primary-font);
 }
 
-img {
-  max-width: 400px;
+a {
+  text-decoration: none;
+  color: inherit;
 }
 
 nav {
   z-index: 5;
-  width: 100%;
-  height: var(--nav-height);
   position: fixed;
+  top: 0;
+  left: 0;
   display: flex;
-  justify-content: center;
   backdrop-filter: blur(10px);
+  flex-direction: column;
+  align-items: start;
+  justify-content: start;
+  padding-top: 5rem;
+  height: 100vh;
+  gap: 1rem;
+
+  >* {
+    flex-basis: 5rem;
+    width: 10rem;
+  }
 
   & a {
-    flex-basis: 10em;
-    text-align: center;
-    line-height: var(--nav-height);
-    text-decoration: none;
     color: var(--primary-color);
     background: radial-gradient(rgba(255, 255, 255, 0.3) 0, transparent 40%);
-    /* text-shadow: 0 0 2px white; */
 
     &:link {
       color: var(--primary-color);
@@ -93,10 +99,7 @@ nav {
     4px 4px 7px white;
 }
 
-/* padding-top: revert; */
-
-.neomorph-emboss-2,
-#skills p:hover {
+.neomorph-emboss-2 {
   background: var(--light-shadow);
   box-shadow: -1px -1px 4px var(--dark-shadow),
     2px 2px 4px white;
@@ -125,17 +128,16 @@ nav {
 }
 
 .neomorph-emboss-transparent,
-a:hover {
+a.nav-item:hover {
   padding-top: .05rem;
   color: var(--primary-color);
   background: radial-gradient(rgba(255, 255, 255, 0.5) 0, transparent 40%);
-  border-radius: 0 0 5px 5px;
   box-shadow: -2px -2px 6px var(--dark-shadow),
     4px 4px 20px rgba(255, 255, 255, 0.5);
 }
 
 .neomorph-deboss-transparent,
-a:active {
+a.nav-item:active {
   background: transparent;
   box-shadow: inset -2px -2px 4px var(--dark-shadow),
     inset 2px 2px 10px rgba(255, 255, 255, 0.5);
@@ -164,12 +166,12 @@ a:active {
 }
 
 .neomorph-text-emboss {
-  color: var(--secondary-color);
+  color: var(--secondary-color) !important;
   text-shadow: .02em .02em .03em white, -.02em -.02em .03em var(--dark-shadow);
 }
 
 .neomorph-text-emboss-2 {
-  color: var(--light-shadow);
+  color: var(--light-shadow) !important;
   text-shadow: .05em .05em .05em white, -.03em -.03em .05em var(--dark-shadow);
 }
 
@@ -185,7 +187,7 @@ a:active {
 }
 
 .intro {
-  padding: 12rem 0;
+  padding: 16rem 0;
 
   & h1 {
     font-size: 8em;
@@ -199,17 +201,11 @@ section {
   position: relative;
   height: 100vh;
   width: 100%;
-  padding: calc(2rem + var(--nav-height)) 5rem;
+  padding: calc(2rem + var(--nav-height)) 3rem;
 }
 
 main {
   display: flex;
-  gap: 5rem;
-
-  >* {
-    flex-grow: 1;
-    flex-basis: 15rem;
-  }
 }
 
 .main-profile {
@@ -219,10 +215,9 @@ main {
 .profile-pic {
   display: block;
   padding-top: 2rem;
-  width: 16rem;
-  margin: 2rem;
-  margin-bottom: 1rem;
+  margin: 2rem auto 1rem;
   background-color: var(--primary-color);
+  max-width: 80%;
 }
 
 hr {
@@ -233,7 +228,7 @@ hr {
 }
 
 .biography {
-  padding: 1em 2rem 0;
+  padding: 1em 2rem;
   line-height: 2em;
   text-align: justify;
 }
@@ -242,35 +237,32 @@ hr {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 2rem;
+  overflow-x: scroll;
 
   >figure {
     text-align: center;
-    padding: 1rem 1rem .5rem;
+    padding: 2rem;
   }
 
   & figcaption {
-    height: 3em;
+    height: 5rem;
+    font-size: 3rem;
   }
 
-  & p {
-    font-size: .8em;
-    line-height: 2em;
-    margin-top: .5em;
+  & .skills-info-txt {
+    font-size: 2rem;
+    line-height: 3rem;
+    text-wrap: wrap;
   }
 
   & img {
     height: 60px;
+    margin: 1rem 0;
   }
 }
 
 #contact {
   display: flex;
-  gap: 5rem;
-}
-
-#contact-form {
-  flex-basis: 15rem;
-  flex-grow: 1;
 }
 
 .contact-grid {
@@ -329,6 +321,8 @@ hr {
 }
 
 #contact-form {
+  flex-basis: 15rem;
+  flex-grow: 1;
   background: var(--light-shadow);
   display: flex;
   flex-direction: column;
@@ -346,6 +340,7 @@ hr {
   }
 
   & input[type="submit"] {
+    margin-top: 1rem;
     text-align: center;
     width: 50%;
     height: 10%;
@@ -375,11 +370,8 @@ hr {
 }
 
 .pie {
-  width: 10rem;
-  height: 10rem;
   border: 5px solid var(--light-shadow);
   border-radius: 50%;
-  margin: 2rem auto 0;
   background: conic-gradient(#B2DFDB calc(36deg * 1),
       #E6E6FA 0 calc(36deg * 2),
       #FFDAB9 0 calc(36deg * 3),
@@ -449,21 +441,515 @@ hr {
 }
 
 footer {
+
   display: flex;
   justify-content: space-around;
   align-items: center;
-  height: 3rem;
+  padding: 8px 0;
   font-weight: bold;
-  letter-spacing: 2px;
-}
+  letter-spacing: 1px;
+  font-weight: normal;
 
-
-@media (min-width: 992px) {
-  nav {
-    gap: 4rem;
+  & .footer-description {
+    flex-shrink: 1;
+    flex-basis: 40%;
+    line-height: 1.2;
   }
 }
 
-/* 
- * Make pie chart neomorphic, with segments varying in depth
-*/
+#live_page_link:hover {
+  text-decoration: underline;
+  flex-shrink: 1;
+}
+
+.icon {
+  max-width: 30px;
+}
+
+.nav-button {
+  position: fixed;
+  z-index: 6;
+  top: 0;
+  left: 0;
+  margin: 10px;
+  border: 1px solid var(--light-shadow);
+  /* filter: drop-shadow(4px 4px 10px var(--dark-shadow)); */
+  filter: opacity(25%);
+}
+
+.nav-button:hover {
+  filter: opacity(60%);
+}
+
+.nav-button:active {
+  filter: opacity(80%);
+}
+
+.nav-button+nav {
+  display: none;
+}
+
+.nav-button:focus+nav {
+  display: flex !important;
+}
+
+.nav-item {
+  padding-left: 5px;
+}
+
+.nav-item:hover {
+  border-radius: 0 5px 5px 0;
+}
+
+#hr-1 {
+  display: none;
+}
+
+.pie {
+  width: 30rem;
+  height: 30rem;
+}
+
+.pie-legend {
+  font-size: 3rem;
+}
+
+.biography-extra {
+  display: flex;
+  padding: 2rem;
+}
+
+#intro h1 {
+  font-size: 12rem;
+  text-wrap: wrap;
+}
+
+/* Small phones */
+@media only screen and (max-width: 599px) {
+  html {
+    font-size: 8px
+  }
+
+  nav {
+    font-size: 3rem;
+    padding-top: 10rem;
+    gap: 2rem;
+  }
+
+  .nav-item {
+    width: 15rem;
+  }
+
+  section:not(#intro),
+  main {
+    height: auto;
+  }
+
+  main {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .main-profile {
+    order: 1;
+  }
+
+  .biography {
+    order: 2;
+    font-size: 2rem;
+  }
+
+  .biography-extra {
+    order: 3;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .name {
+    font-size: 3rem;
+    line-height: 4rem;
+    margin-bottom: 1rem;
+  }
+
+  #skills {
+    display: flex;
+    width: auto;
+
+    >* {
+      flex-grow: 1;
+      flex-shrink: 0;
+      width: 30rem;
+      height: 40rem;
+    }
+  }
+
+  #contact {
+    flex-direction: column;
+    align-items: center;
+    gap: 4rem;
+  }
+
+  .contact-grid {
+    grid-template-columns: repeat(8, 4rem);
+    grid-template-rows: repeat(3, calc(2rem + (4rem * 2)));
+    gap: 2rem;
+    padding: 0;
+
+    & img {
+      height: 5rem;
+    }
+
+    .caption-contact {
+      font-size: 2rem;
+    }
+  }
+
+  #contact-form {
+    font-size: 2rem;
+
+    & fieldset {
+      flex-direction: column;
+      margin: 1rem;
+    }
+
+    & h1 {
+      font-size: 3rem;
+      line-height: 3rem;
+      margin: 2rem 0;
+    }
+
+    & input {
+      height: 4rem;
+    }
+
+    & input,
+    textarea {
+      width: 96%;
+      font-size: 2rem;
+      padding: 1rem;
+    }
+  }
+
+  footer {
+    height: 25rem;
+    flex-direction: column;
+    font-size: 5rem;
+
+    & #copyright {
+      margin: 3rem auto;
+    }
+
+    & .footer-description,
+    #live_page_link {
+      text-align: center;
+      font-size: 2rem;
+    }
+  }
+}
+
+/* Portrait Tablets and Larger/Landscaped Phones */
+@media only screen and (min-width: 600px) {
+
+  html {
+    font-size: 10px;
+  }
+
+  #intro {
+    padding: 15vh 0;
+  }
+
+  nav>* {
+    flex-basis: 4rem;
+  }
+
+  .profile-pic {
+    width: 12rem;
+  }
+
+  .pie {
+    width: 15rem;
+    height: 15rem;
+  }
+
+  .pie-legend {
+    font-size: 1rem;
+  }
+
+  main {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 2rem;
+  }
+
+  .main-profile {
+    order: 1;
+    flex-shrink: 1;
+    flex-basis: 15rem;
+  }
+
+  .biography {
+    flex-grow: 1;
+    order: 3;
+    font-size: 1.2em;
+    text-wrap: wrap;
+    flex-basis: 15rem;
+  }
+
+  .biography-extra {
+    flex-grow: 1;
+    order: 2;
+    flex-basis: 20rem;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  #skills {
+    width: auto;
+    grid-template-columns: repeat(5, 30rem);
+
+    & figcaption {
+      font-size: 2rem;
+      height: 3rem;
+    }
+
+    & .skills-info-txt {
+      font-size: 1.6rem;
+    }
+
+    & img {
+      height: 4rem;
+    }
+
+  }
+
+  #contact {
+    align-items: center;
+  }
+
+  .contact-grid {
+    grid-template-columns: repeat(8, 2rem);
+    grid-template-rows: repeat(3, calc(1rem + (2rem * 2)));
+    gap: 1rem;
+    padding: 2rem;
+
+    & img {
+      height: 2.5rem;
+    }
+  }
+
+  #phone-contact figcaption {
+    font-size: .7rem;
+  }
+
+  #contact-form {
+    font-size: 1rem;
+
+    & fieldset,
+    textarea {
+      width: 20rem;
+    }
+  }
+}
+
+/* Landscape Tablets and Phones */
+@media only screen and (min-width: 768px) {
+  html {
+    font-size: 10px;
+  }
+
+  #intro {
+    font-size: 1rem;
+    padding: 20vh 0;
+  }
+
+  .main-profile {
+    flex-basis: 15rem;
+  }
+
+  .profile-pic {
+    width: 80%;
+  }
+
+  .name {
+    font-size: 10px;
+  }
+
+  .biography-extra {
+    flex-basis: 60vw;
+
+  }
+
+  .biography {
+    flex-basis: 20rem;
+    font-size: 1em;
+  }
+
+  nav {
+    display: flex !important;
+    width: 100vw;
+    height: var(--nav-height);
+    flex-direction: row;
+    align-items: center;
+    padding: 0;
+    justify-content: center;
+    gap: 5rem;
+
+    & a {
+      flex-basis: 10em;
+      text-align: center;
+      line-height: var(--nav-height);
+      color: var(--primary-color);
+      background: radial-gradient(rgba(255, 255, 255, 0.3) 0, transparent 40%);
+    }
+  }
+
+  .nav-item:hover {
+    border-radius: 0 0 5px 5px;
+  }
+
+  .nav-button {
+    display: none;
+  }
+
+  #skills {
+    grid-template-columns: repeat(5, 24rem);
+
+    & figcaption {
+      font-size: 1.6rem;
+    }
+
+    & img {
+      height: 4rem;
+    }
+
+    & .skills-info-txt {
+      font-size: 1.2rem;
+      line-height: 2rem;
+    }
+  }
+
+  .contact-grid {
+    grid-template-columns: repeat(8, 3rem);
+    grid-template-rows: repeat(3, calc(1rem + (3rem * 2)));
+    gap: 1rem;
+    padding: 2rem;
+
+    & img {
+      height: 3rem;
+    }
+  }
+
+  #contact-form {
+    font-size: 1.2rem;
+
+    & h1 {
+      font-size: 1.6rem;
+    }
+
+    & input:not(#submit_message) {
+      height: 2rem;
+      margin-bottom: .6rem;
+    }
+
+    & fieldset,
+    textarea {
+      width: 100%;
+    }
+
+    & #submit_message {
+      height: 3rem;
+    }
+  }
+}
+
+/* Laptops and up */
+@media only screen and (min-width: 992px) {
+  html {
+    font-size: 14px;
+  }
+
+  #skills {
+    overflow: hidden;
+  }
+
+  .biography {
+    font-size: 12px;
+  }
+
+  .biography-extra {
+    flex-direction: column;
+  }
+
+  .profile-pic {
+    width: 14rem;
+  }
+
+  .pie {
+    width: 10rem;
+    height: 10rem;
+  }
+
+  main {
+    gap: 5rem;
+    flex-wrap: nowrap;
+
+    >* {
+      flex-grow: 1;
+      flex-basis: 15rem !important;
+      order: unset !important;
+      font-size: 1rem !important;
+    }
+
+    .name {
+      font-size: 1.2rem;
+    }
+  }
+
+  #skills {
+    grid-template-columns: repeat(5, 1fr);
+
+    & figure {
+      padding: 1rem;
+    }
+
+    & figcaption {
+      font-size: 1rem;
+      height: 1rem;
+    }
+
+    & img {
+      height: 3rem;
+    }
+
+    & .skills-info-txt {
+      font-size: 80%;
+      line-height: 1rem;
+    }
+  }
+
+  #contact {
+    padding-left: 5rem;
+    padding-right: 5rem;
+    gap: 5rem;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  html {
+    font-size: 16px;
+  }
+
+  #intro {
+    padding: 14vh;
+  }
+
+  .profile-pic {
+    width: 16rem;
+  }
+
+  .pie-legend {
+    font-size: 14px;
+  }
+}
